@@ -1,3 +1,13 @@
+# Usage:
+#   Baseline without tags:
+#
+#   $ ansible-playbook test_tags.yaml
+#
+#   Running with tags:
+#
+#   $ ansible-playbook test_tags.yaml
+#
+# idgaf what you do with it license, but prs are welcome
 - name: Test Tags
   hosts: "localhost"
   tasks:
@@ -30,15 +40,16 @@
       tags:
         - bar
 
-    # Tags do not function as expected with these:
+    #
+    # Tags do not inherit on the following:
+    #
 
-    #- name: Include Bar_Tags Untagged
-    #  include_tasks: bar_tags.yaml
+    - name: Include Bar_Tags Untagged - FAIL
+      include_tasks: bar_tags.yaml
 
 
-    #- name: Include Bar Untagged
-    #  include_tasks: bar.yaml
+    - name: Include Bar Untagged - FAIL
+      include_tasks: bar.yaml
 
-    #- name: Import Bar Untagged
-    #  import_tasks: bar.yaml
-
+    - name: Import Bar Untagged - FAIL
+      import_tasks: bar.yaml
