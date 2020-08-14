@@ -1,0 +1,5 @@
+- name: Bar Tags
+  debug:
+    msg: "bar tags"
+  tags:
+    - bar

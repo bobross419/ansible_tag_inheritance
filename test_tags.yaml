@@ -1,0 +1,44 @@
+- name: Test Tags
+  hosts: "localhost"
+  tasks:
+    - name: Foo
+      debug:
+        msg: "foo"
+      tags:
+        - foo
+
+    - name: Import Bar_Tags Not Untagged
+      import_tasks: bar_tags.yaml
+
+    - name: Include Bar_Tags
+      include_tasks: bar_tags.yaml
+      tags:
+        - bar
+
+    - name: Import Bar_Tags
+      import_tasks: bar_tags.yaml
+      tags:
+        - bar
+
+    - name: Include Bar
+      include_tasks: bar.yaml
+      tags:
+        - bar
+
+    - name: Import Bar
+      import_tasks: bar.yaml
+      tags:
+        - bar
+
+    # Tags do not function as expected with these:
+
+    #- name: Include Bar_Tags Untagged
+    #  include_tasks: bar_tags.yaml
+
+
+    #- name: Include Bar Untagged
+    #  include_tasks: bar.yaml
+
+    #- name: Import Bar Untagged
+    #  import_tasks: bar.yaml
+
