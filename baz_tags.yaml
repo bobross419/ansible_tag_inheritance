@@ -1,0 +1,5 @@
+- name: Baz Tags
+  debug:
+    msg: "baz tags"
+  tags:
+    - baz

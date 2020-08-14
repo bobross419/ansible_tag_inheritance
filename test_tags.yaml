@@ -17,7 +17,7 @@
       tags:
         - foo
 
-    - name: Import Bar_Tags Not Untagged
+    - name: Import Bar_Tags Untagged
       import_tasks: bar_tags.yaml
 
     - name: Include Bar_Tags
@@ -53,3 +53,25 @@
 
     - name: Import Bar Untagged - FAIL
       import_tasks: bar.yaml
+
+    - name: Include Baz 
+      include_tasks: baz.yaml
+      tags:
+        - bar
+        - baz
+
+    - name: Import Baz
+      include_tasks: baz.yaml
+      tags:
+        - bar
+        - baz
+
+    - name: Include baz_tags with bar
+      include_tasks: baz_tags.yaml
+      tags:
+        - bar
+
+    - name: Import baz_tags with bar
+      include_tasks: baz_tags.yaml
+      tags:
+        - bar
