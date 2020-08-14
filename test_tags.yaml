@@ -5,7 +5,7 @@
 #
 #   Running with tags:
 #
-#   $ ansible-playbook test_tags.yaml
+#   $ ansible-playbook test_tags.yaml --tags bar
 #
 # idgaf what you do with it license, but prs are welcome
 - name: Test Tags
